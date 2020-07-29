@@ -31,30 +31,26 @@ int levelSum(int n, int casenum, int order) {
 		if (casenum == 1) {	// case 1
 			if (pi[n] == pi[n + 1]) 
 				return sum = min(levelSum(n + 1, 1, order + 1), levelSum(n + 1, 0, 0));
-			else return sum = levelSum(n + 1, 0, 0);
 		}
 		else if (casenum == 21) {	// case 2-1
 			if (pi[n] + 1 == pi[n + 1]) 
 				return sum = min(levelSum(n + 1, 21, order + 1), levelSum(n + 1, 0, 0));
-			else return sum = levelSum(n + 1, 0, 0);
 		}
 		else if (casenum == 22) {	// case 2-2
 			if (pi[n] - 1 == pi[n + 1]) 	
 				return sum = min(levelSum(n + 1, 22, order + 1), levelSum(n + 1, 0, 0));
-			else return sum = levelSum(n + 1, 0, 0);
 		}
 		else if (casenum == 3) {	// case 3
 			if (pi[n + 1] == pi[n - 1])	
 				return sum = min(levelSum(n + 1, 3, order + 1), levelSum(n + 1, 0, 0));
-			else return sum = levelSum(n + 1, 0, 0);
 		}
 		else if (casenum == 4) {	// case 4
 			if (pi[n] - pi[n + 1] == pi[n - 1] - pi[n]) 
 				return sum = min(levelSum(n + 1, 4, order + 1), levelSum(n + 1, 0, 0));
-			else return sum = levelSum(n + 1, 0, 0) ;
 		}
 		else if (casenum == 5)		// case 5
 			return sum = min(levelSum(n + 1, 5, order + 1), levelSum(n + 1, 0, 0));
+		return sum = levelSum(n + 1, 0, 0) ;
 	}
 	if (order == 5) {	// 자릿수 5 일 때
 		return sum = levelSum(n + 1, 0, 0);
