@@ -2,16 +2,15 @@
 #include <vector>
 using namespace std;
 
-// »õ·Î Ã¤¿öÁú Ä­µéÀÇ »ó´ëÁÂÇ¥ (ÁÖ¾îÁø Ä­À» µ¤À» ¼ö ÀÖ´Â ³×°¡Áö ¹æ¹ı)
+// ìƒˆë¡œ ì±„ì›Œì§ˆ ì¹¸ë“¤ì˜ ìƒëŒ€ì¢Œí‘œ (ì£¼ì–´ì§„ ì¹¸ì„ ë®ì„ ìˆ˜ ìˆëŠ” ë„¤ê°€ì§€ ë°©ë²•)
 const int coverType[4][3][2] = {
 	{{0, 0}, {1, 0}, {0, 1}},
 	{{0, 0}, {0, 1}, {1, 1}},
 	{{0, 0}, {1, 0}, {1, 1}},
 	{{0, 0}, {1, 0}, {1, -1}}
 };
-
-// vector<int> : ÀÚµ¿À¸·Î ¸Ş¸ğ¸®°¡ ÇÒ´çµÇ´Â 1Â÷¿ø ¹è¿­ template
-// vector<vector<int>> : 2Â÷¿ø ¹è¿­
+// vector<int> : ìë™ìœ¼ë¡œ ë©”ëª¨ë¦¬ê°€ í• ë‹¹ë˜ëŠ” 1ì°¨ì› ë°°ì—´ template
+// vector<vector<int>> : 2ì°¨ì› ë°°ì—´
 bool set(vector<vector<int>> &board, int y, int x, int type, int delta) {
 
 	bool ok = true;
