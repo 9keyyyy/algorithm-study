@@ -3,10 +3,11 @@
 using namespace std;
 
 /*
-	¿ì¼±¼øÀ§ Å¥ »ç¿ë (heapÀÇ ±¸Çö)
-	ÃÖ´ëºÎÅÍ ºüÁö´Â °É Max Heap, ÃÖ¼ÒºÎÅÍ ºüÁö´Â °É Min HeapÀÌ¶ó°í ÇÔ
-	Maxheap, Minheap ¼±¾ğÇØ Maxheap¿¡¼­ Ç×»ó Áß°£°ªÀ» popÇÒ ¼ö ÀÖµµ·Ï ¼³Á¤
-	Minheap¿¡´Â Áß°£°ª ÀÌÈÄºÎÅÍÀÇ °ª ÀúÀå, Maxheap¿¡´Â Áß°£°ª ¾Æ·¡·Î °ª ÀúÀå
+	ìš°ì„ ìˆœìœ„ í ì‚¬ìš© (heapì˜ êµ¬í˜„)
+	
+	ìµœëŒ€ë¶€í„° ë¹ ì§€ëŠ” ê±¸ Max Heap, ìµœì†Œë¶€í„° ë¹ ì§€ëŠ” ê±¸ Min Heapì´ë¼ê³  í•¨
+	Maxheap, Minheap ì„ ì–¸í•´ Maxheapì—ì„œ í•­ìƒ ì¤‘ê°„ê°’ì„ popí•  ìˆ˜ ìˆë„ë¡ ì„¤ì •
+	Minheapì—ëŠ” ì¤‘ê°„ê°’ ì´í›„ë¶€í„°ì˜ ê°’ ì €ì¥, Maxheapì—ëŠ” ì¤‘ê°„ê°’ ì•„ë˜ë¡œ ê°’ ì €ì¥
 */
 
 struct RNG {
@@ -19,9 +20,9 @@ struct RNG {
 	}
 };
 int runningMedian(int n, RNG rng) {
-	// ¿ì¼±¼øÀ§ Å¥ : < datatype, container type, Á¤·Ä±âÁØ >
-	priority_queue<int, vector<int>, less<int>> maxHeap; // Å«°ÍºÎÅÍ pop
-	priority_queue<int, vector<int>, greater<int>> minHeap; // ÀÛÀº°ÍºÎÅÍ pop
+	// ìš°ì„ ìˆœìœ„ í : < datatype, container type, ì •ë ¬ê¸°ì¤€ >
+	priority_queue<int, vector<int>, less<int>> maxHeap; // í°ê²ƒë¶€í„° pop
+	priority_queue<int, vector<int>, greater<int>> minHeap; // ì‘ì€ê²ƒë¶€í„° pop
 	int ret = 0;
 	for (int cnt = 1; cnt <= n; ++cnt) {
 		if (maxHeap.size() == minHeap.size())
