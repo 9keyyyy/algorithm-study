@@ -6,24 +6,16 @@ using namespace std;
 
 int board[20][20];
 int H, W;
-int block[12][2][2] = {
-	{{-1, -1}, {0, -1}},
-	{{0, -1}, {1, -1}},
-	{{1, -1}, {1, 0}},
+int block[4][2][2] = {
 	{{1, 0}, {1, 1}},
 	{{1, 1}, {0, 1}},
 	{{0, 1}, {-1, 1}},
-	{{-1, 1}, {-1, 0}},
-	{{-1, 0}, {-1, -1}},
-	{{0, -1}, {1, 0}},
-	{{1, 0}, {0, 1}},
-	{{-1, 0}, {0, 1}},
-	{{-1, 0}, {0, -1}}
+	{{1, 0}, {0, 1}}
 };
 int sum = 0;
 
 // 게임판을 벗어나는지 범위 확인하는 함수
-int isRange(int x, int y){
+int isRange(int x, int y) {
 	if (x < 0 || x >= W || y < 0 || y >= H) return 0;
 	else return 1;
 }
@@ -43,20 +35,20 @@ void fillBoard(int b[][20], int y, int x) {
 		return;
 	}
 	// 블럭으로 가능한 모든 경우의 수 시도
-	for (int i = 0; i < 12; i++) {
+	for (int i = 0; i < 4; i++) {
 		int y1 = y + block[i][0][1];
 		int y2 = y + block[i][1][1];
 		int x1 = x + block[i][0][0];
 		int x2 = x + block[i][1][0];
 
 		if (isRange(x1, y1) == 0 || isRange(x2, y2) == 0) continue;
-		
+
 		// 칸이 모두 비어있는 경우
 		if (b[y][x] == 0 && b[y1][x1] == 0 && b[y2][x2] == 0) {
 			b[y][x] = b[y1][x1] = b[y2][x2] = 1;
 			fillBoard(b, y, x);
 			b[y][x] = b[y1][x1] = b[y2][x2] = 0;
-		}		
+		}
 	}
 }
 
