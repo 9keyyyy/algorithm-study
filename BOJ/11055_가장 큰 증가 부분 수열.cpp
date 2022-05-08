@@ -2,11 +2,13 @@
 // DP
 using namespace std;
 #include <iostream>
-
+#include <math.h>
 int cache[1001];
 int arr[1001];
 int N;
 
+// ver1. recur
+// 배열의 끝에서부터 생각
 int returnMaxSeq(int idx) {
 	
 	if (idx == N - 1) return arr[idx];
@@ -21,6 +23,22 @@ int returnMaxSeq(int idx) {
 		}
 	}
 	return ret = max;
+}
+
+// ver2. non-recur
+// 배열의 시작에서부터 생각
+int sol() {
+	int m;
+	for (int i = 0; i < N; i++) {
+		cache[i] = arr[i];
+		for (int j = 0; j < i; j++) {
+			if (arr[i] > arr[j]) {
+				cache[i] = max(cache[j] + arr[i], cache[i]);
+			}
+		}
+		m = max(m, cache[i]);
+	}
+	return m;
 }
 
 int main() {
