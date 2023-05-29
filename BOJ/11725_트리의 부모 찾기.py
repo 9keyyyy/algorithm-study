@@ -1,5 +1,8 @@
 # 230529
 from collections import deque
+import sys
+
+input = sys.stdin.readline
 
 def bfs(idx):
     q = deque()
@@ -11,7 +14,6 @@ def bfs(idx):
             if parent[node] == 0:
                 parent[node] = cur
                 q.append(node)
-
 
 
 n = int(input())
