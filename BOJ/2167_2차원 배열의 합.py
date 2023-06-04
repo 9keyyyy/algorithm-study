@@ -14,4 +14,4 @@ k = int(input())
 
 for i in range(k):
     i, j, x, y = map(int, input().split())
-    print(cache[x][y] + cache[x][j-1] + cache[i-1][y] - cache[i-1][j-1])
+    print(cache[x][y] - cache[x][j-1] - cache[i-1][y] + cache[i-1][j-1])
