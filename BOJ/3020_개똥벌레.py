@@ -1,5 +1,7 @@
 # 230613
 # 누적합
+import sys
+input = sys.stdin.readline
 
 n, h = map(int, input().split())
 
