@@ -8,7 +8,7 @@ INF = sys.maxsize
 def dijkstra(start):
     q = []
     dist = [INF] * (N+1)
-    
+
     heapq.heappush(q, (0, start))
     dist[start] = 0
 
@@ -23,6 +23,8 @@ def dijkstra(start):
             if cost < dist[node[0]]:
                 dist[node[0]] = cost
                 heapq.heappush(q, (cost, node[0]))
+    
+    return dist
 
 
 N, M, X = map(int, input().split())
